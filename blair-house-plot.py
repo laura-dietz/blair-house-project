@@ -28,7 +28,8 @@ blairInside = filt(blairInsideAll)
 begin = blairInside['time'][0]
 end = blairInside['time'][-1]
 duration = end - begin
-slices = [(begin + duration * step / 100, begin + duration * (step + 2) / 100) for step in range(1, 98)]
+steps = 300
+slices = [(begin + duration * step / steps, begin + duration * (step + 2) / steps) for step in range(0, steps-2)]
 
 slicedDates = [begin + (begin - end) / 2 for ( begin, end) in slices] # re-center date in middle of avg window
 
